@@ -14,6 +14,11 @@ gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releas
 
 Download a `.COM` from a repo's latest release and run it in [DOSBox](https://www.dosbox.com/).
 
+## Even smaller
+
+[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): ten demos, each **under 9 bytes**: the stack
+pointed at the screen, a RAM x-ray, a pulsing cursor, and five that make noise.
+
 ## The big one
 
 [**uber40k-dos-demo**](https://github.com/djayuffe/uber40k-dos-demo): a 20-scene show with a real 3D engine,
