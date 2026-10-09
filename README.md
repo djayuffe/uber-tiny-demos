@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**An index of DOS size-coding demos in x86 assembly: 10, 77, 131 and 171 bytes, each in its own repository.**
+**An index of DOS size-coding demos in x86 assembly: 10, 77, 131, 171 and 205 bytes, each in its own repository, plus 8-byte and 3-demo 256-byte collections.**
 
 Each demo is a single `.COM` file with no assets and no libraries, and has its own repo with a build
 gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releases.
@@ -11,13 +11,14 @@ gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releas
 | ![UBER128](docs/uber128.jpg) | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
 | ![MOIRE](docs/moire.jpg) | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
 | ![UBER256](docs/uber256.jpg) | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
+| ![GALAXY](docs/galaxy.jpg) | **[GALAXY, CLIFF, SELFTEX](https://github.com/djayuffe/uber256-lab)** | **205 / 210 / 77 bytes** | 256 | two x87 strange attractors with glow, fade and morphing, and a texture made of the program's own code |
 
 Download a `.COM` from a repo's latest release and run it in [DOSBox](https://www.dosbox.com/).
 
 ## Even smaller
 
-[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): twenty-six demos, each **under 9 bytes**: the stack
-pointed at the screen, a program that prints itself, a pulsing cursor, a blizzard of glyphs, and four that make noise.
+[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): twenty-eight demos, each **under 9 bytes**: the stack
+pointed at the screen, a program that prints itself, a pulsing cursor, a blizzard of glyphs, four that make noise, and two overlapping-instruction programs.
 
 ## The big one
 
