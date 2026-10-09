@@ -16,7 +16,7 @@ Download a `.COM` from a repo's latest release and run it in [DOSBox](https://ww
 
 ## Even smaller
 
-[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): thirteen demos, each **under 9 bytes**: the stack
+[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): twenty demos, each **under 9 bytes**: the stack
 pointed at the screen, a program that prints itself, a pulsing cursor, a blizzard of glyphs, and four that make noise.
 
 ## The big one
