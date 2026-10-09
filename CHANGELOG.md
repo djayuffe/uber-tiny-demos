@@ -4,7 +4,7 @@
 
 - This repository is now an **index**. The demos live in their own repositories, each with a build gate,
   an emulated-CPU test, CI and tag-driven releases:
-  [uber8-dos-demo](https://github.com/djayuffe/uber8-dos-demo) (5 bytes),
+  [uber10-dos-demo](https://github.com/djayuffe/uber10-dos-demo) (10 bytes),
   [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) (77),
   [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) (131, the moire) and
   [uber256-rotozoomer](https://github.com/djayuffe/uber256-rotozoomer) (171, the rotozoomer).

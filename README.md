@@ -1,13 +1,13 @@
 # UBER tiny demos
 
-**An index of DOS size-coding demos in x86 assembly: 5, 77, 131 and 171 bytes, each in its own repository.**
+**An index of DOS size-coding demos in x86 assembly: 10, 77, 131 and 171 bytes, each in its own repository.**
 
 Each demo is a single `.COM` file with no assets and no libraries, and has its own repo with a build
 gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releases.
 
 | | Demo | Size | Class | What it does |
 |---|---|---|---|---|
-| ![UBER8](docs/uber8.jpg) | **[UBER8](https://github.com/djayuffe/uber8-dos-demo)** | **5 bytes** | 8 | every CP437 glyph, scrolling, with sound |
+| ![UBER10](docs/uber8.jpg) | **[UBER10](https://github.com/djayuffe/uber10-dos-demo)** | **10 bytes** | 16 | the 256 CP437 glyphs scrolling at a readable pace, with sound |
 | ![UBER128](docs/uber128.jpg) | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
 | ![MOIRE](docs/moire.jpg) | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
 | ![UBER256](docs/uber256.jpg) | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
