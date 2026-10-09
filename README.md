@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**An index of DOS size-coding demos in x86 assembly: 10, 77, 131, 171 and 205 bytes, each in its own repository, plus 8-byte and 3-demo 256-byte collections.**
+**An index of DOS size-coding demos in x86 assembly: 10, 77, 131, 171 and 205 bytes, each in its own repository, plus 28 demos under 9 bytes.**
 
 Each demo is a single `.COM` file with no assets and no libraries, and has its own repo with a build
 gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releases.
