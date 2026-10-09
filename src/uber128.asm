@@ -1,5 +1,18 @@
-; UBER128 - a 128-byte DOS demo: rainbow rings that flow out of an orbiting centre.
+; UBER128 - a 128-byte-class DOS demo, in 79 bytes: rainbow rings, endlessly flowing out
+; of the screen centre.
 ; NASM: nasm -f bin src/uber128.asm -o UBER128.COM      Target: DOS/DOSBox, VGA, 386+
+;
+; Size hacks:
+;  * DOS enters a .COM with BX = 0, so BL is the palette index and then the frame counter
+;    with no setup, and AX = 0 so `mov al,13h` is enough for the mode set.
+;  * The VGA BIOS leaves the DAC write index at 0 after a mode set, so the palette is
+;    simply streamed to port 3C9h: three OUTs per entry from one running value:
+;    R = i, G = 2i, B = 4i (the DAC keeps 6 bits). Nothing but doubling, yet it gives a
+;    dense, saturated, seamless-looking rainbow.
+;  * There is no pixel loop nest. DI runs over the whole 64 KB segment and wraps to 0 by
+;    itself, which ends the frame; x and y come from one DIV by 320 (AX = y, DX = x).
+;  * r^2 = dx^2 + dy^2 instead of a square root; the colour is r^2/64 + frame counter.
+;  * One short wait for retrace (70 fps); Esc is read straight from port 60h.
 BITS 16
 ORG 100h
 
@@ -7,66 +20,40 @@ ORG 100h
     int 10h
     push word 0A000h
     pop es
-
-    ; palette: three phase-shifted triangle waves = a seamless rainbow loop
-    mov dx,3C8h
-    xor ax,ax
-    out dx,al
-    inc dx
-    xor bx,bx
+    mov dx,3C9h
 .pal:
     mov al,bl
-    call tri
-    out dx,al
-    mov al,bl
-    add al,85
-    call tri
-    out dx,al
-    mov al,bl
-    add al,170
-    call tri
-    out dx,al
+    out dx,al                     ; R = i
+    add al,al
+    out dx,al                     ; G = 2i
+    add al,al
+    out dx,al                     ; B = 4i
     inc bl
-    jnz .pal                      ; BX = 0: also the frame counter
-
-frame:
-    mov al,bl                     ; the ring centre swings left and right:
-    call tri                      ; x = 160 + (tri(t) - 32) * 4
-    sub al,32
-    cbw
-    shl ax,2
-    add ax,160
-    mov si,ax
-    xor di,di
-    mov dx,200
-.y:
+    jnz .pal
     mov cx,320
 .x:
-    mov ax,cx
-    sub ax,si
-    imul ax,ax
-    mov bp,ax
-    mov ax,dx
+    mov ax,di
+    xor dx,dx
+    div cx                        ; ax = y, dx = x
+    sub dx,160
+    imul dx,dx
     sub ax,100
     imul ax,ax
-    add ax,bp
+    add ax,dx                     ; r^2 from the screen centre
     shr ax,6
-    add al,bl
+    add al,bl                     ; the colours roll with the frame counter
     stosb
-    loop .x
-    dec dx
-    jnz .y
+    test di,di
+    jnz .x                        ; DI wrapped: the frame is complete
     inc bx
+    mov dx,3DAh
+.vs:
+    in al,dx
+    test al,8
+    jz .vs                        ; wait for vertical retrace
     in al,60h
     dec al
-    jnz frame
+    jnz .x                        ; not Esc: next frame
     mov ax,3
     int 10h
-    ret
-
-tri:                              ; AL = triangle(AL): 0..63
-    sub al,128
-    cbw
-    xor al,ah
-    shr al,1
     ret

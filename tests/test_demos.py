@@ -28,6 +28,7 @@ class Run:
         self.modes, self.chars, self.frames, self.unmapped = [], [], [], []
         self.dac, self.idx, self.sub, self.cur, self.exited = {}, 0, 0, [0, 0, 0], False
         self.dac_writes = 0
+        self.poll_hooks = []
         uc.hook_add(UC_HOOK_INSN, self.on_in, None, 1, 0, UC_X86_INS_IN)
         uc.hook_add(UC_HOOK_INSN, self.on_out, None, 1, 0, UC_X86_INS_OUT)
         uc.hook_add(UC_HOOK_INTR, self.on_intr)
@@ -39,12 +40,14 @@ class Run:
             return 8 if (self.vs // 2) % 2 else 0
         if port == 0x60:
             self.polls += 1
+            for h in self.poll_hooks: h(uc)
             self.frames.append(bytes(uc.mem_read(0xA0000, 64000)))
             return 1 if self.esc_after is not None and self.polls > self.esc_after else 0
         return 0
 
     def on_out(self, uc, port, size, v, ud):
         v &= 0xFF
+        if port == 0x3C9: v &= 63                     # the DAC keeps 6 bits
         if port == 0x3C8: self.idx, self.sub = v, 0
         elif port == 0x3C9:
             self.dac_writes += 1
@@ -68,18 +71,19 @@ class Run:
         return self
 
 # ------------------------------------------------------------------- UBER8
-print("== UBER8.COM (8 bytes) ==")
+print("== UBER8.COM (8-byte class) ==")
 r = Run("UBER8.COM").run(instructions=6000)
-check(len(r.com) == 8, f"is exactly 8 bytes ({len(r.com)})")
-check(r.modes[:1] == [0], f"first act: INT 10h with AX=0 sets video mode 0 (modes {r.modes[:3]})")
-check(len(r.chars) > 1000, f"prints a stream of characters through INT 29h ({len(r.chars)} in 6000 instructions)")
-check(all((b - a) % 256 == 83 for a, b in zip(r.chars, r.chars[1:])), "each character is the previous one + 83 (mod 256)")
-check(set(r.chars[:256]) == set(range(256)), "the first 256 characters are all 256 distinct codes (83 is odd)")
+check(len(r.com) <= 8, f"fits the 8-byte class ({len(r.com)} bytes)")
+check(not r.modes, "sets no video mode: it relies on DOS's default 80x25 text mode")
+check(len(r.chars) > 1500, f"prints a stream of characters through INT 29h ({len(r.chars)} in 6000 instructions)")
+check(r.chars[0] == 0 and all((b - a) % 256 == 1 for a, b in zip(r.chars, r.chars[1:])),
+      "starts at code 0 (AX = 0 at entry) and counts up by one, wrapping at 256")
+check(set(r.chars[:256]) == set(range(256)), "the first 256 characters are all 256 distinct codes")
 check(7 in r.chars[:256], "includes BEL (07h): it beeps")
 check(not r.unmapped, "touches no memory outside the program segment")
 
 # ---------------------------------------------------------- UBER128 / 256
-for name, limit, frames in (("UBER128.COM", 128, 12), ("UBER256.COM", 256, 6)):
+for name, limit, frames in (("UBER128.COM", 128, 12), ("UBER256.COM", 256, 40)):
     print(f"\n== {name} (limit {limit} bytes) ==")
     r = Run(name, esc_after=frames).run()
     check(len(r.com) <= limit, f"fits the {limit}-byte limit ({len(r.com)} bytes)")
@@ -88,13 +92,29 @@ for name, limit, frames in (("UBER128.COM", 128, 12), ("UBER256.COM", 256, 6)):
     check(r.exited, "returns to DOS (PSP INT 20h) after Esc")
     check(r.uc.reg_read(UC_X86_REG_SP) == 0, "stack balanced: the final RET popped exactly the DOS return word")
     check(r.dac_writes == 768 and len(r.dac) == 256, f"programs all 256 palette entries ({r.dac_writes} writes)")
-    seam = max(abs(a - b) for a, b in zip(r.dac[255], r.dac[0]))
-    check(seam <= 3, f"the palette loops seamlessly (entry 255 vs 0 differ by at most {seam})")
+    check(all(r.dac[i] == (i & 63, (2 * i) & 63, (4 * i) & 63) for i in range(256)),
+          "palette entry i is (i, 2i, 4i) in the DAC's 6 bits, for all 256 entries, starting at index 0")
     check(r.polls >= frames, f"runs frame after frame until Esc ({r.polls} frames)")
     f0, f1 = r.frames[1], r.frames[frames - 1]
     check(len(set(f0)) > 64, f"each frame uses many colours ({len(set(f0))} distinct indices)")
     check(f0 != f1, f"animates: {sum(a != b for a, b in zip(f0, f1))} of 64000 pixels differ between frames")
     check(all(len(f) == 64000 for f in r.frames), "every frame is a full 320x200 page")
+
+# ------------------------------------------------ UBER256: the rotation maths
+print("\n== UBER256.COM: rotation about the screen centre ==")
+r = Run("UBER256.COM", esc_after=300)
+data = LIN + 0x100 + len(r.com) - 16                      # (c, s, u0, v0) are the last 4 dwords of the file
+vecs = []
+r.poll_hooks.append(lambda uc: vecs.append(
+    [int.from_bytes(bytes(uc.mem_read(data + 4 * i, 4)), "little", signed=True) / 65536 for i in range(4)]))
+r.run()
+mags = [(c * c + s * s) ** 0.5 for c, s, u0, v0 in vecs]
+check(len(vecs) >= 300, f"observed {len(vecs)} frames")
+check(max(mags) < 56 * 1.02 and min(mags) > 56 * 0.98, f"(c, s) keeps a constant length (circle): {min(mags):.1f}..{max(mags):.1f}")
+off = [(abs(u0 + 160 * c - 100 * s), abs(v0 + 160 * s + 100 * c)) for c, s, u0, v0 in vecs]
+worst = max(max(o) for o in off) / 56
+check(worst < 4, f"the rotation centre stays within 4 pixels of the screen centre for 300 frames (worst {worst:.1f} px)")
+check(max(c for c, s, u0, v0 in vecs) - min(c for c, s, u0, v0 in vecs) > 90, "the vector really rotates (c sweeps both signs)")
 
 print("\nRESULT:", "ALL PASS" if not fails else f"{len(fails)} FAILED:\n  - " + "\n  - ".join(fails))
 sys.exit(1 if fails else 0)
