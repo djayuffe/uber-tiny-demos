@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**An index of DOS size-coding demos in x86 assembly: 10, 77, 131, 171 and 205 bytes, each in its own repository, plus 28 demos under 9 bytes.**
+**An index of DOS size-coding demos in x86 assembly: 10, 77, 131, 171 and 205 bytes, each in its own repository, plus 29 demos under 9 bytes.**
 
 Each demo is a single `.COM` file with no assets and no libraries, and has its own repo with a build
 gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releases.
@@ -17,7 +17,7 @@ Download a `.COM` from a repo's latest release and run it in [DOSBox](https://ww
 
 ## Even smaller
 
-[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): twenty-eight demos, each **under 9 bytes**: the stack
+[**uber-micro-demos**](https://github.com/djayuffe/uber-micro-demos): twenty-nine demos, each **under 9 bytes**: the stack
 pointed at the screen, a program that prints itself, a pulsing cursor, a blizzard of glyphs, four that make noise, and two overlapping-instruction programs.
 
 ## The big one
