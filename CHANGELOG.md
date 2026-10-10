@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.4.0] - 2026-10-10
+
+- Inventory now 43 programs: adds LATCH (82 B, VGA graphics-controller cellular automaton) from `uber256-lab` v1.5.0.
+
 ## [3.3.0] - 2026-10-10
 
 - Inventory now 42 programs: adds OVERMAX (8 bytes) from `uber-micro-demos` v1.9.0.
