@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.1.0] - 2026-10-10
+
+- Inventory now 41 programs: adds ESCHER (137 B, CRTC-only animation) and CHLADNI (224 B, FPU plate) from `uber256-lab` v1.4.0.
+
 ## [3.0.0] - 2026-10-10
 
 - The index now covers the whole family: 39 programs in 7 repositories, from the 4-byte `BIG.COM` to the 11 KB `UBERSHOW.COM`.

@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**The index of a family of DOS size-coding demos in x86 assembly: 39 programs in 7 repositories, from 4 bytes to 11 KB.**
+**The index of a family of DOS size-coding demos in x86 assembly: 41 programs in 7 repositories, from 4 bytes to 11 KB.**
 
 Each program is a flat 16-bit real-mode `.COM` file with no assets and no libraries. Every repository has its own build gate
 (a size budget that stops a program growing back), an emulated-CPU test suite, CI, and tag-driven releases with checksums.
@@ -8,7 +8,7 @@ This repository is only the map: a size ladder, an inventory, and the tricks the
 
 | | |
 |---|---|
-| **39** programs | **29** are under 9 bytes, **38** are 256 bytes or less |
+| **41** programs | **29** are under 9 bytes, **40** are 256 bytes or less |
 | **4 bytes** | the smallest (`BIG.COM`: 40x25 text mode) |
 | **11,179 bytes** | the largest (`UBERSHOW.COM`: a 20-scene show with 3D and FM music) |
 
@@ -26,9 +26,11 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | <img src="docs/uber128.jpg" width="220"> | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
 | <img src="docs/fire.jpg" width="220"> | **[FIRE](https://github.com/djayuffe/uber256-lab)** | **123 bytes** | 128 | framebuffer-feedback fire with a generated palette and an LCG noise source |
 | <img src="docs/moire.jpg" width="220"> | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
+| <img src="docs/escher.jpg" width="220"> | **[ESCHER](https://github.com/djayuffe/uber256-lab)** | **137 bytes** | 256 | the picture is drawn once; only the CRT controller's start address and line compare move, folding a hyperbolic texture into an impossible patchwork |
 | <img src="docs/julia.jpg" width="220"> | **[JULIA](https://github.com/djayuffe/uber256-lab)** | **161 bytes** | 256 | a Julia set in 8.8 fixed point, no FPU, its constant orbiting on a Minsky oscillator |
 | <img src="docs/uber256.jpg" width="220"> | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
 | <img src="docs/galaxy.jpg" width="220"> | **[GALAXY](https://github.com/djayuffe/uber256-lab)** | **205 bytes** | 256 | a de Jong strange attractor on the x87 FPU, glowing, fading and morphing |
+| <img src="docs/chladni.jpg" width="220"> | **[CHLADNI](https://github.com/djayuffe/uber256-lab)** | **224 bytes** | 256 | the nodal lines of a vibrating plate on the FPU, with drifting mode numbers that also tune the speaker |
 | <img src="docs/cliff.jpg" width="220"> | **[CLIFF](https://github.com/djayuffe/uber256-lab)** | **210 bytes** | 256 | the same engine with Clifford-attractor equations |
 | <img src="docs/ubershow.jpg" width="220"> | **[UBERSHOW](https://github.com/djayuffe/uber40k-dos-demo)** | **11,179 bytes** | 40K | a 20-scene show: a real 3D engine, a lookup-table effects engine, kick-synced effects and Sound Blaster FM music |
 
@@ -39,7 +41,7 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | Repository | What is in it | Programs | Latest |
 |---|---|---:|---|
 | [uber-micro-demos](https://github.com/djayuffe/uber-micro-demos) | the under-9-byte collection, with the notes on the found-memory and overlapping-instruction ideas | 29 | v1.8.0 |
-| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a fire, an integer Julia set, a self-code texture | 5 | v1.3.0 |
+| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a Chladni plate, a fire, an integer Julia set, a CRTC-only animation, a self-code texture | 7 | v1.4.0 |
 | [uber10-dos-demo](https://github.com/djayuffe/uber10-dos-demo) | the 10-byte glyph scroller | 1 | v1.1.0 |
 | [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) | the 77-byte ring tunnel | 1 | v1.0.0 |
 | [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) | MOIRE, 131 bytes | 1 | v1.1.0 |
@@ -64,6 +66,7 @@ palette index and frame counter. The tricks that recur across the family:
 - **Integer fractals.** 8.8 fixed point with `imul` / `shrd` replaces the FPU (JULIA), and a Minsky oscillator (`x += y>>5; y -= x>>5`) gives a circle with no sine table.
 - **The program as data.** Its own bytes make a texture (SELFTEX) or a palette (CODEPAL); DOS's Program Segment Prefix is read backwards (PSPBACK).
 - **Overlapping instructions.** A jump into the middle of an instruction makes the same bytes two programs; one byte picks the operation (OVERLAP, OVERSUB, OVERHEAR).
+- **The CRT controller as an animator.** Draw once, then move only the display start address and line compare: three port writes move the whole image (ESCHER).
 - **Hardware does the work.** One BIOS or port call (`BIG`, `TALL`, the PC-speaker demos) changes the machine, and the effect can outlive the program.
 
 ## How the family is tested and released
