@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.2.0] - 2026-10-10
+
+- INVENTORY.md gains a preview image for every one of the 41 programs (`docs/thumbs/`), generated alongside the list.
+
 ## [3.1.0] - 2026-10-10
 
 - Inventory now 41 programs: adds ESCHER (137 B, CRTC-only animation) and CHLADNI (224 B, FPU plate) from `uber256-lab` v1.4.0.

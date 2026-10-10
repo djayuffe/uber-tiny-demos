@@ -12,7 +12,7 @@ This repository is only the map: a size ladder, an inventory, and the tricks the
 | **4 bytes** | the smallest (`BIG.COM`: 40x25 text mode) |
 | **11,179 bytes** | the largest (`UBERSHOW.COM`: a 20-scene show with 3D and FM music) |
 
-The full, generated list of every program with its size and one-line description is in **[INVENTORY.md](INVENTORY.md)**.
+The full, generated list of every program with a preview image, its size and a one-line description is in **[INVENTORY.md](INVENTORY.md)**.
 
 ## The size ladder (the headline demos)
 
