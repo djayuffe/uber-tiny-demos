@@ -11,7 +11,7 @@ gate that stops it growing back, an emulated-CPU test, CI, and tag-driven releas
 | ![UBER128](docs/uber128.jpg) | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
 | ![MOIRE](docs/moire.jpg) | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
 | ![UBER256](docs/uber256.jpg) | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
-| ![GALAXY](docs/galaxy.jpg) | **[GALAXY, CLIFF, FIRE, SELFTEX](https://github.com/djayuffe/uber256-lab)** | **205 / 210 / 123 / 77 bytes** | 256 | two x87 strange attractors with glow, fade and morphing, a feedback fire, and a texture made of the program's own code |
+| ![GALAXY](docs/galaxy.jpg) | **[GALAXY, CLIFF, FIRE, JULIA, SELFTEX](https://github.com/djayuffe/uber256-lab)** | **205 / 210 / 123 / 161 / 77 bytes** | 256 | two x87 strange attractors with glow, fade and morphing, a feedback fire, an integer Julia set, and a texture made of the program's own code |
 
 Download a `.COM` from a repo's latest release and run it in [DOSBox](https://www.dosbox.com/).
 
