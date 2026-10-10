@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.0] - 2026-10-10
+
+- Inventory now 42 programs: adds OVERMAX (8 bytes) from `uber-micro-demos` v1.9.0.
+
 ## [3.2.0] - 2026-10-10
 
 - INVENTORY.md gains a preview image for every one of the 41 programs (`docs/thumbs/`), generated alongside the list.
