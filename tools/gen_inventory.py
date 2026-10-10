@@ -31,7 +31,7 @@ REPOS = [
     ("uber256-dos-intro",  "single",     "two ring families, one orbiting the other, XORed into a moire"),
     ("uber256-rotozoomer", "single",     "an XOR rotozoomer with no multiplies and no sine table"),
     ("uber256-lab",        "collection", r"^\|\s*\[`(\w+)\.COM`\]\([^)]*\)\s*\|\s*\d+ B\s*\|[^|]*\|\s*(.+?)\s*\|\s*$"),
-    ("uber-micro-demos",   "collection", r"^\|\s*\*\*(\w+)\*\*\s*\|\s*\d+\s*\|\s*(.+?)\s*\|\s*$"),
+    ("uber-micro-demos",   "collection", r"^\|(?:\s*<img[^|]*\|)?\s*\*\*(\w+)\*\*\s*\|\s*\d+\s*\|\s*(.+?)\s*\|\s*$"),
     ("uber40k-dos-demo",   "show",       "20-scene show: 3D engine, starfield, scroller, Sound Blaster FM music"),
 ]
 LEGACY = [("uber256-megademo", "the earlier 18-scene line of the big show, superseded by uber40k-dos-demo"),
