@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.9.0] - 2026-10-11
+
+- Sizes after the `uber256-lab` v1.10.0 size pass (ESCHER 134, CHLADNI 221, JULIA 155, ROOTS 247, ORDER 106, SELFTEX 73).
+
 ## [3.8.0] - 2026-10-10
 
 - Inventory now 46 programs: adds ROOTS (232 B) from `uber256-lab` v1.8.0.
