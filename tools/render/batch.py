@@ -4,7 +4,7 @@ import emu
 D = '/Users/ulfbertilsson/Downloads/'
 # name, com path, shown-as, how, step, frames, gif fps, gif size, colours
 JOBS = {
- 'ROOTS':   (D+'uber256-lab/ROOTS.COM', 'vsync', 1, 130, 25, (320, 200), 128),
+ 'ROOTS':   (D+'uber256-lab/ROOTS.COM', 'vsync', 2, 150, 25, (320, 200), 128),
  'ORDER':   (D+'uber256-lab/ORDER.COM', 'vsync', 1, 150, 25, (320, 200), 64),
  'WARP':    (D+'uber256-lab/WARP.COM', 'vsync', 3, 150, 23, (480, 300), 16),
  'LATCH':   (D+'uber256-lab/LATCH.COM', 'vsync', 2, 150, 25, (320, 200), 16),

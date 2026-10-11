@@ -14,7 +14,7 @@ Previews (`docs/thumbs/NAME.jpg`) are real DOSBox captures. Five micro demos hav
 | [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) | one demo | v1.0.0 | 2026-10-09 | 1 |
 | [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) | one demo | v1.1.0 | 2026-10-09 | 1 |
 | [uber256-rotozoomer](https://github.com/djayuffe/uber256-rotozoomer) | one demo | v1.0.0 | 2026-10-09 | 1 |
-| [uber256-lab](https://github.com/djayuffe/uber256-lab) | a collection | v1.8.0 | 2026-10-11 | 11 |
+| [uber256-lab](https://github.com/djayuffe/uber256-lab) | a collection | v1.9.0 | 2026-10-11 | 11 |
 | [uber-micro-demos](https://github.com/djayuffe/uber-micro-demos) | a collection | v1.9.0 | 2026-10-10 | 30 |
 | [uber40k-dos-demo](https://github.com/djayuffe/uber40k-dos-demo) | the big show | v1.4.0 | 2026-10-08 | 1 |
 
@@ -59,8 +59,8 @@ Also in the family but not counted above (no `.COM` in a current release): [uber
 | <img src="docs/thumbs/SELFTEX.jpg" width="96" alt="SELFTEX"> | 77 | `SELFTEX.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Each pixel is a byte of the program's own machine code, picked by `x*y/64 + time`. The hyperbolic bands you see are the code. |
 | <img src="docs/thumbs/UBER128.jpg" width="96" alt="UBER128"> | 77 | `UBER128.COM` | [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) | rainbow rings flowing out of the screen centre |
 | <img src="docs/thumbs/LATCH.jpg" width="96" alt="LATCH"> | 82 | `LATCH.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | A rule-60 cellular automaton (Sierpinski waterfalls) computed by the VGA graphics controller: each byte read loads 8 pixels x 4 planes into the latches, each write puts them back one row up with an XOR colour applied by the hardware. |
+| <img src="docs/thumbs/ORDER.jpg" width="96" alt="ORDER"> | 108 | `ORDER.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Three cheap expressions per pixel (hyperbolas, vertical lines, horizontal lines) are never drawn; only which of the six orderings they are in is, so the screen is a set of regions whose boundaries fold and collide as time moves. |
 | <img src="docs/thumbs/FIRE.jpg" width="96" alt="FIRE"> | 123 | `FIRE.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Framebuffer feedback: each pixel becomes the average of four pixels below it, minus a little, with random heat injected at the bottom. A smoky turbulent fire, no FPU. |
-| <img src="docs/thumbs/ORDER.jpg" width="96" alt="ORDER"> | 123 | `ORDER.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Three cheap expressions per pixel (hyperbolas, vertical lines, horizontal lines) are never drawn; only which of the six orderings they are in is, so the screen is a set of regions whose boundaries fold and collide as time moves. |
 | <img src="docs/thumbs/MOIRE.jpg" width="96" alt="MOIRE"> | 131 | `MOIRE.COM` | [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) | two ring families, one orbiting the other, XORed into a moire |
 | <img src="docs/thumbs/ESCHER.jpg" width="96" alt="ESCHER"> | 137 | `ESCHER.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | The picture is drawn once; after that only the CRT controller's start address and line-compare registers move, folding a hyperbolic texture into an impossible patchwork. No pixel is ever redrawn. |
 | <img src="docs/thumbs/JULIA.jpg" width="96" alt="JULIA"> | 161 | `JULIA.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | A Julia set in 8.8 fixed point. Its constant circles on a Minsky oscillator, so the fractal continually changes shape. No FPU, no sine table. |
@@ -68,7 +68,7 @@ Also in the family but not counted above (no `.COM` in a current release): [uber
 | <img src="docs/thumbs/GALAXY.jpg" width="96" alt="GALAXY"> | 205 | `GALAXY.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | A de Jong strange attractor drawn as a glowing, fading, slowly morphing cloud. The orbit also tunes the PC speaker. |
 | <img src="docs/thumbs/CLIFF.jpg" width="96" alt="CLIFF"> | 210 | `CLIFF.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | The same engine with Clifford-attractor equations and parameters: two curling wings over a web of caustics. |
 | <img src="docs/thumbs/CHLADNI.jpg" width="96" alt="CHLADNI"> | 224 | `CHLADNI.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | The nodal lines of a vibrating plate, `sin(ax)sin(by) - sin(bx)sin(ay) = 0`, with drifting mode numbers that also tune the speaker. |
-| <img src="docs/thumbs/ROOTS.jpg" width="96" alt="ROOTS"> | 232 | `ROOTS.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Polynomial root migration: the white curves are where a cubic in x and y changes sign; as one coefficient sweeps, the roots migrate, pinch into a crossing and reconnect the other way. Warm and cool contour bands show the sign. |
+| <img src="docs/thumbs/ROOTS.jpg" width="96" alt="ROOTS"> | 251 | `ROOTS.COM` | [uber256-lab](https://github.com/djayuffe/uber256-lab) | Polynomial root migration: the bright curves are where a cubic in x and y changes sign; as two coefficients sweep at different speeds, the roots migrate, pinch into crossings and reconnect, in new places each time. Warm and cool contour bands show the sign. |
 | <img src="docs/thumbs/UBERSHOW.jpg" width="96" alt="UBERSHOW"> | 11,179 | `UBERSHOW.COM` | [uber40k-dos-demo](https://github.com/djayuffe/uber40k-dos-demo) | 20-scene show: 3D engine, starfield, scroller, Sound Blaster FM music |
 
 ## Size classes
