@@ -89,6 +89,10 @@ tools/gen_inventory.py > INVENTORY.md      # needs the gh CLI, signed in
 
 Run it after publishing a release and commit the result.
 
+## Animations
+
+Some demo READMEs have real DOSBox screen recordings; others have GIFs rendered from the real binary in the emulated CPU with a model of the display, because screen recording needs the Mac left alone. The renderer is in [tools/render](tools/render), and each GIF caption says which kind it is.
+
 ## History
 
 This repository started as the single home of the first three demos (v1.0.0: 8 / 118 / 237 bytes; v1.1.0: 5 / 79 / 171 bytes; those releases still carry

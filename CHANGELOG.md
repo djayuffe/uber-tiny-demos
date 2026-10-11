@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.6.0] - 2026-10-10
+
+- `tools/render`: the emulator-based GIF renderer (text mode with CRTC, mode 13h with the DAC, planar mode 0Dh with VGA latches) and the DOSBox font/screen dumper it relies on.
+- Animations added across the family: LATCH, WARP, FLUX, EVO1, EVO2, SNOW, OVERSUB, UBER10, UBER128, MOIRE and the rotozoomer.
+
 ## [3.5.0] - 2026-10-10
 
 - Inventory now 44 programs: adds WARP (72 B) from `uber256-lab` v1.6.0.
