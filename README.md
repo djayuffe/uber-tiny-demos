@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**The index of a family of DOS size-coding demos in x86 assembly: 45 programs in 7 repositories, from 4 bytes to 11 KB.**
+**The index of a family of DOS size-coding demos in x86 assembly: 46 programs in 7 repositories, from 4 bytes to 11 KB.**
 
 Each program is a flat 16-bit real-mode `.COM` file with no assets and no libraries. Every repository has its own build gate
 (a size budget that stops a program growing back), an emulated-CPU test suite, CI, and tag-driven releases with checksums.
@@ -8,7 +8,7 @@ This repository is only the map: a size ladder, an inventory, and the tricks the
 
 | | |
 |---|---|
-| **45** programs | **30** are under 9 bytes, **44** are 256 bytes or less |
+| **46** programs | **30** are under 9 bytes, **45** are 256 bytes or less |
 | **4 bytes** | the smallest (`BIG.COM`: 40x25 text mode) |
 | **11,179 bytes** | the largest (`UBERSHOW.COM`: a 20-scene show with 3D and FM music) |
 
@@ -34,6 +34,7 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | <img src="docs/uber256.jpg" width="220"> | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
 | <img src="docs/galaxy.jpg" width="220"> | **[GALAXY](https://github.com/djayuffe/uber256-lab)** | **205 bytes** | 256 | a de Jong strange attractor on the x87 FPU, glowing, fading and morphing |
 | <img src="docs/chladni.jpg" width="220"> | **[CHLADNI](https://github.com/djayuffe/uber256-lab)** | **224 bytes** | 256 | the nodal lines of a vibrating plate on the FPU, with drifting mode numbers that also tune the speaker |
+| <img src="docs/roots.jpg" width="220"> | **[ROOTS](https://github.com/djayuffe/uber256-lab)** | **232 bytes** | 256 | the roots of a moving cubic as white curves that migrate, cross and reconnect |
 | <img src="docs/cliff.jpg" width="220"> | **[CLIFF](https://github.com/djayuffe/uber256-lab)** | **210 bytes** | 256 | the same engine with Clifford-attractor equations |
 | <img src="docs/ubershow.jpg" width="220"> | **[UBERSHOW](https://github.com/djayuffe/uber40k-dos-demo)** | **11,179 bytes** | 40K | a 20-scene show: a real 3D engine, a lookup-table effects engine, kick-synced effects and Sound Blaster FM music |
 
@@ -44,7 +45,7 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | Repository | What is in it | Programs | Latest |
 |---|---|---:|---|
 | [uber-micro-demos](https://github.com/djayuffe/uber-micro-demos) | the under-9-byte collection, with the notes on the found-memory and overlapping-instruction ideas | 30 | v1.9.0 |
-| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a Chladni plate, a fire, an integer Julia set, a CRTC-only animation, a VGA-logic cellular automaton, a CRTC-warped DOS screen, an ordering-based partition, a self-code texture | 10 | v1.7.0 |
+| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a Chladni plate, a fire, an integer Julia set, a CRTC-only animation, a VGA-logic cellular automaton, a CRTC-warped DOS screen, an ordering-based partition, migrating polynomial roots, a self-code texture | 11 | v1.8.0 |
 | [uber10-dos-demo](https://github.com/djayuffe/uber10-dos-demo) | the 10-byte glyph scroller | 1 | v1.1.0 |
 | [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) | the 77-byte ring tunnel | 1 | v1.0.0 |
 | [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) | MOIRE, 131 bytes | 1 | v1.1.0 |

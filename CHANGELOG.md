@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.8.0] - 2026-10-10
+
+- Inventory now 46 programs: adds ROOTS (232 B) from `uber256-lab` v1.8.0.
+
 ## [3.7.0] - 2026-10-10
 
 - Inventory now 45 programs: adds ORDER (123 B) from `uber256-lab` v1.7.0.
