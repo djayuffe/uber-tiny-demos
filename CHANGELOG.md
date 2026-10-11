@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.7.0] - 2026-10-10
+
+- Inventory now 45 programs: adds ORDER (123 B) from `uber256-lab` v1.7.0.
+
 ## [3.6.0] - 2026-10-10
 
 - `tools/render`: the emulator-based GIF renderer (text mode with CRTC, mode 13h with the DAC, planar mode 0Dh with VGA latches) and the DOSBox font/screen dumper it relies on.

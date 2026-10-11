@@ -1,6 +1,6 @@
 # UBER tiny demos
 
-**The index of a family of DOS size-coding demos in x86 assembly: 44 programs in 7 repositories, from 4 bytes to 11 KB.**
+**The index of a family of DOS size-coding demos in x86 assembly: 45 programs in 7 repositories, from 4 bytes to 11 KB.**
 
 Each program is a flat 16-bit real-mode `.COM` file with no assets and no libraries. Every repository has its own build gate
 (a size budget that stops a program growing back), an emulated-CPU test suite, CI, and tag-driven releases with checksums.
@@ -8,7 +8,7 @@ This repository is only the map: a size ladder, an inventory, and the tricks the
 
 | | |
 |---|---|
-| **44** programs | **30** are under 9 bytes, **43** are 256 bytes or less |
+| **45** programs | **30** are under 9 bytes, **44** are 256 bytes or less |
 | **4 bytes** | the smallest (`BIG.COM`: 40x25 text mode) |
 | **11,179 bytes** | the largest (`UBERSHOW.COM`: a 20-scene show with 3D and FM music) |
 
@@ -24,6 +24,7 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | <img src="docs/uber8.jpg" width="220"> | **[UBER10](https://github.com/djayuffe/uber10-dos-demo)** | **10 bytes** | 16 | the 256 CP437 glyphs scrolling at a readable pace, with sound |
 | <img src="docs/selftex.jpg" width="220"> | **[SELFTEX](https://github.com/djayuffe/uber256-lab)** | **77 bytes** | 128 | the program's own machine code, used as a scrolling texture |
 | <img src="docs/uber128.jpg" width="220"> | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
+| <img src="docs/order.jpg" width="220"> | **[ORDER](https://github.com/djayuffe/uber256-lab)** | **123 bytes** | 128 | regions defined only by which of six orderings three cheap expressions are in: boundaries fold and collide as time moves |
 | <img src="docs/fire.jpg" width="220"> | **[FIRE](https://github.com/djayuffe/uber256-lab)** | **123 bytes** | 128 | framebuffer-feedback fire with a generated palette and an LCG noise source |
 | <img src="docs/moire.jpg" width="220"> | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
 | <img src="docs/escher.jpg" width="220"> | **[ESCHER](https://github.com/djayuffe/uber256-lab)** | **137 bytes** | 256 | the picture is drawn once; only the CRT controller's start address and line compare move, folding a hyperbolic texture into an impossible patchwork |
@@ -43,7 +44,7 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | Repository | What is in it | Programs | Latest |
 |---|---|---:|---|
 | [uber-micro-demos](https://github.com/djayuffe/uber-micro-demos) | the under-9-byte collection, with the notes on the found-memory and overlapping-instruction ideas | 30 | v1.9.0 |
-| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a Chladni plate, a fire, an integer Julia set, a CRTC-only animation, a VGA-logic cellular automaton, a CRTC-warped DOS screen, a self-code texture | 9 | v1.6.0 |
+| [uber256-lab](https://github.com/djayuffe/uber256-lab) | experiments in the 256-byte class: two attractors, a Chladni plate, a fire, an integer Julia set, a CRTC-only animation, a VGA-logic cellular automaton, a CRTC-warped DOS screen, an ordering-based partition, a self-code texture | 10 | v1.7.0 |
 | [uber10-dos-demo](https://github.com/djayuffe/uber10-dos-demo) | the 10-byte glyph scroller | 1 | v1.1.0 |
 | [uber128-dos-demo](https://github.com/djayuffe/uber128-dos-demo) | the 77-byte ring tunnel | 1 | v1.0.0 |
 | [uber256-dos-intro](https://github.com/djayuffe/uber256-dos-intro) | MOIRE, 131 bytes | 1 | v1.1.0 |
