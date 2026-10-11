@@ -22,19 +22,19 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 |---|---|---:|---|---|
 | <img src="docs/micro.jpg" width="220"> | **[30 micro demos](https://github.com/djayuffe/uber-micro-demos)** | **4 to 8 bytes** | 8 | the stack pointed at the screen, a program that prints itself, found-by-evolution screens, a pulsing cursor, speaker noise, two programs in the same eight bytes |
 | <img src="docs/uber8.jpg" width="220"> | **[UBER10](https://github.com/djayuffe/uber10-dos-demo)** | **10 bytes** | 16 | the 256 CP437 glyphs scrolling at a readable pace, with sound |
-| <img src="docs/selftex.jpg" width="220"> | **[SELFTEX](https://github.com/djayuffe/uber256-lab)** | **77 bytes** | 128 | the program's own machine code, used as a scrolling texture |
+| <img src="docs/selftex.jpg" width="220"> | **[SELFTEX](https://github.com/djayuffe/uber256-lab)** | **73 bytes** | 128 | the program's own machine code, used as a scrolling texture |
 | <img src="docs/uber128.jpg" width="220"> | **[UBER128](https://github.com/djayuffe/uber128-dos-demo)** | **77 bytes** | 128 | rainbow rings flowing out of the screen centre |
-| <img src="docs/order.jpg" width="220"> | **[ORDER](https://github.com/djayuffe/uber256-lab)** | **108 bytes** | 128 | regions defined only by which of six orderings three cheap expressions are in: boundaries fold and collide as time moves |
+| <img src="docs/order.jpg" width="220"> | **[ORDER](https://github.com/djayuffe/uber256-lab)** | **106 bytes** | 128 | regions defined only by which of six orderings three cheap expressions are in: boundaries fold and collide as time moves |
 | <img src="docs/fire.jpg" width="220"> | **[FIRE](https://github.com/djayuffe/uber256-lab)** | **123 bytes** | 128 | framebuffer-feedback fire with a generated palette and an LCG noise source |
 | <img src="docs/moire.jpg" width="220"> | **[MOIRE](https://github.com/djayuffe/uber256-dos-intro)** | **131 bytes** | 256 | two ring families, one orbiting the other, XORed into a moire |
 | <img src="docs/escher.jpg" width="220"> | **[ESCHER](https://github.com/djayuffe/uber256-lab)** | **137 bytes** | 256 | the picture is drawn once; only the CRT controller's start address and line compare move, folding a hyperbolic texture into an impossible patchwork |
 | <img src="docs/warp.jpg" width="220"> | **[WARP](https://github.com/djayuffe/uber256-lab)** | **72 bytes** | 128 | the DOS screen you launched it from, squashed, stretched and sheared by two CRT-controller registers, with no drawing at all |
 | <img src="docs/latch.jpg" width="220"> | **[LATCH](https://github.com/djayuffe/uber256-lab)** | **82 bytes** | 128 | a Sierpinski cellular automaton computed by the VGA graphics controller: latches copy 32 pixel-bits per byte, the hardware applies the XOR |
-| <img src="docs/julia.jpg" width="220"> | **[JULIA](https://github.com/djayuffe/uber256-lab)** | **161 bytes** | 256 | a Julia set in 8.8 fixed point, no FPU, its constant orbiting on a Minsky oscillator |
+| <img src="docs/julia.jpg" width="220"> | **[JULIA](https://github.com/djayuffe/uber256-lab)** | **155 bytes** | 256 | a Julia set in 8.8 fixed point, no FPU, its constant orbiting on a Minsky oscillator |
 | <img src="docs/uber256.jpg" width="220"> | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
 | <img src="docs/galaxy.jpg" width="220"> | **[GALAXY](https://github.com/djayuffe/uber256-lab)** | **205 bytes** | 256 | a de Jong strange attractor on the x87 FPU, glowing, fading and morphing |
 | <img src="docs/chladni.jpg" width="220"> | **[CHLADNI](https://github.com/djayuffe/uber256-lab)** | **224 bytes** | 256 | the nodal lines of a vibrating plate on the FPU, with drifting mode numbers that also tune the speaker |
-| <img src="docs/roots.jpg" width="220"> | **[ROOTS](https://github.com/djayuffe/uber256-lab)** | **251 bytes** | 256 | the roots of a moving cubic as bright curves that migrate, cross and reconnect |
+| <img src="docs/roots.jpg" width="220"> | **[ROOTS](https://github.com/djayuffe/uber256-lab)** | **247 bytes** | 256 | the roots of a moving cubic as bright curves that migrate, cross and reconnect |
 | <img src="docs/cliff.jpg" width="220"> | **[CLIFF](https://github.com/djayuffe/uber256-lab)** | **210 bytes** | 256 | the same engine with Clifford-attractor equations |
 | <img src="docs/ubershow.jpg" width="220"> | **[UBERSHOW](https://github.com/djayuffe/uber40k-dos-demo)** | **11,179 bytes** | 40K | a 20-scene show: a real 3D engine, a lookup-table effects engine, kick-synced effects and Sound Blaster FM music |
 
