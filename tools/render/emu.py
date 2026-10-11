@@ -26,7 +26,7 @@ def dos_screen(name):
     return bytes(m), last + 1
 
 class M:
-    def __init__(s, com, name, rng=1):
+    def __init__(s, com, name, rng=1, hlt=False):
         s.com = open(com, 'rb').read()
         uc = s.uc = Uc(UC_ARCH_X86, UC_MODE_16)
         uc.mem_map(0, 0x10000); uc.mem_map(LIN, 0x10000); uc.mem_map(0xA0000, 0x30000)
@@ -42,10 +42,9 @@ class M:
         uc.hook_add(UC_HOOK_INSN, s.on_in, None, 1, 0, UC_X86_INS_IN)
         uc.hook_add(UC_HOOK_INSN, s.on_out, None, 1, 0, UC_X86_INS_OUT)
         uc.hook_add(UC_HOOK_INTR, s.on_int)
-        uc.hook_add(UC_HOOK_MEM_READ, s.on_vread, None, 0xA0000, 0xAFFFF)
-        uc.hook_add(UC_HOOK_MEM_WRITE, s.on_vwrite, None, 0xA0000, 0xAFFFF)
+        s.vhooks = None               # the planar-VGA memory hooks are added only when mode 0Dh is set
         s.hlt_at = None
-        if 0xF4 in s.com:
+        if hlt and 0xF4 in s.com:            # only for programs that really use HLT as a timer tick (an F4 byte can be data)
             off = s.com.index(0xF4); s.hlt_at = LIN + 0x100 + off; uc.mem_write(s.hlt_at, b'\x90')
             uc.hook_add(UC_HOOK_CODE, s.on_hlt, None, s.hlt_at, s.hlt_at)
     # ---- ports
@@ -76,6 +75,9 @@ class M:
             uc.mem_write(0xA0000, bytes(0x10000)); s.planes = [bytearray(65536) for _ in range(4)]
             s.gr = [0, 0, 0, 0, 0, 0, 0, 0, 0xFF]
             if s.mode == 0x13: s.dac = [0]*768
+            if s.mode == 0x0D and s.vhooks is None:
+                s.vhooks = (uc.hook_add(UC_HOOK_MEM_READ, s.on_vread, None, 0xA0000, 0xAFFFF),
+                            uc.hook_add(UC_HOOK_MEM_WRITE, s.on_vwrite, None, 0xA0000, 0xAFFFF))
         elif n == 0x29: s.tty(ax & 255)
     def tty(s, ch):
         if ch == 13: s.cur_col = 0; return

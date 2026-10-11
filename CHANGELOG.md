@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.10.0] - 2026-10-11
+
+- GALAXY 201 and CLIFF 206 bytes after `uber256-lab` v1.11.0. `tools/render`: HLT handling is opt-in (an F4 byte can be data), and the planar-VGA memory hooks are only installed in mode 0Dh.
+
 ## [3.9.0] - 2026-10-11
 
 - Sizes after the `uber256-lab` v1.10.0 size pass (ESCHER 134, CHLADNI 221, JULIA 155, ROOTS 247, ORDER 106, SELFTEX 73).

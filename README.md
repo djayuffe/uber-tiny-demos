@@ -32,10 +32,10 @@ Everything here runs in [DOSBox](https://www.dosbox.com/) (or on VGA hardware); 
 | <img src="docs/latch.jpg" width="220"> | **[LATCH](https://github.com/djayuffe/uber256-lab)** | **82 bytes** | 128 | a Sierpinski cellular automaton computed by the VGA graphics controller: latches copy 32 pixel-bits per byte, the hardware applies the XOR |
 | <img src="docs/julia.jpg" width="220"> | **[JULIA](https://github.com/djayuffe/uber256-lab)** | **155 bytes** | 256 | a Julia set in 8.8 fixed point, no FPU, its constant orbiting on a Minsky oscillator |
 | <img src="docs/uber256.jpg" width="220"> | **[UBER256](https://github.com/djayuffe/uber256-rotozoomer)** | **171 bytes** | 256 | an XOR rotozoomer with no multiplies and no sine table |
-| <img src="docs/galaxy.jpg" width="220"> | **[GALAXY](https://github.com/djayuffe/uber256-lab)** | **205 bytes** | 256 | a de Jong strange attractor on the x87 FPU, glowing, fading and morphing |
+| <img src="docs/galaxy.jpg" width="220"> | **[GALAXY](https://github.com/djayuffe/uber256-lab)** | **201 bytes** | 256 | a de Jong strange attractor on the x87 FPU, glowing, fading and morphing |
 | <img src="docs/chladni.jpg" width="220"> | **[CHLADNI](https://github.com/djayuffe/uber256-lab)** | **221 bytes** | 256 | the nodal lines of a vibrating plate on the FPU, with drifting mode numbers that also tune the speaker |
 | <img src="docs/roots.jpg" width="220"> | **[ROOTS](https://github.com/djayuffe/uber256-lab)** | **247 bytes** | 256 | the roots of a moving cubic as bright curves that migrate, cross and reconnect |
-| <img src="docs/cliff.jpg" width="220"> | **[CLIFF](https://github.com/djayuffe/uber256-lab)** | **210 bytes** | 256 | the same engine with Clifford-attractor equations |
+| <img src="docs/cliff.jpg" width="220"> | **[CLIFF](https://github.com/djayuffe/uber256-lab)** | **206 bytes** | 256 | the same engine with Clifford-attractor equations |
 | <img src="docs/ubershow.jpg" width="220"> | **[UBERSHOW](https://github.com/djayuffe/uber40k-dos-demo)** | **11,179 bytes** | 40K | a 20-scene show: a real 3D engine, a lookup-table effects engine, kick-synced effects and Sound Blaster FM music |
 
 *Class* is the size category the program was built for (8 / 16 / 128 / 256 bytes, or a 40 KB budget). Several beat their class by a wide margin.

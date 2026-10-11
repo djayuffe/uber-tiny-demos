@@ -23,7 +23,7 @@ for name in sys.argv[1:]:
     com, how, step, n, fps, (w, h), cols = JOBS[name]
     out = f'/tmp/render/frames/{name}'; os.makedirs(out, exist_ok=True)
     for f in os.listdir(out): os.remove(os.path.join(out, f))
-    m = emu.M(com, os.path.basename(com))
+    m = emu.M(com, os.path.basename(com), hlt=(how == 'tick'))
     for i in range(n):
         if how == 'instr': m.run('instr', step)
         else:
